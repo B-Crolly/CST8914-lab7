@@ -24,9 +24,20 @@ body {
 a{
   color: #006b3a;
 }
+
+
+
 main a{
+  /* We don't want this, it means there is no focus indicator, which is bad for keyboard users
   outline: none;
+  */
 }
+
+/* Provide a custom focus outline */
+main a:focus {
+  outline: 2px solid #006b3a; 
+
+
 h2 {
   margin-top: 0;
 }
@@ -206,7 +217,7 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
-        <!--Fixed begative tab index in menu. We want this to be focusable-->
+        <!--Fixed negative tab index in menu. We want this to be focusable-->
         <a href="#">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
