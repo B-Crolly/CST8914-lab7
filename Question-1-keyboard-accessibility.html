@@ -230,10 +230,13 @@ article p {
   <div class="newsletter">
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text">
-      <!--This button should only function when clicked, not when focus is first grabbed. changed to onclick-->
-      <button type="button" onclick="getFocus()">Sign up</button></div>
       
+      <!-- Improved accessibility for the input field -->
+      <label for="newsletter-email" class="offscreen">Email Address:</label>
+      <input type="email" id="newsletter-email" aria-label="Enter your email address to sign up for the newsletter" placeholder="Enter your email">
+      
+      <!-- Descriptive button with onclick event -->
+      <button type="button" onclick="getFocus()" aria-label="Submit your email to sign up for the newsletter">Sign up</button>
     </div>
   </div>
   <main class="container">
