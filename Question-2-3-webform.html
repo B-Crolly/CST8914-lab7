@@ -72,7 +72,7 @@
         </div>
     </form>
 
-    <!-- JavaScript code with accessibility improvements -->
+    <!-- JavaScript code with accessibility improvements and error handling fixes -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         "use strict";
@@ -119,7 +119,12 @@
 
                     // Associate the error message with the input using 'aria-describedby'
                     $elementToDescribe.attr('aria-describedby', input + '_description');
-                    $errorContainer.append('<li>').find('li:last').append($error);
+
+                    // Append the error message to the error container
+                    $errorContainer.append('<li class="error">').find('li:last').append($error);
+
+                    // **Add the 'error' class to the input or fieldset**
+                    $elementToDescribe.addClass('error');
                 } else {
                     // If a value exists, set it for the input
                     if ($input.is(':checkbox') || $input.is(':radio')) {
@@ -138,6 +143,7 @@
                     validateInput('gender', 'Please tell us your gender!');
                     validateInput('accept_agbs', 'You must accept our terms and conditions!');
 
+                    // **Check if there are any errors by checking elements with the 'error' class**
                     if ($('.error').length === 0) {
                         alert('All inputs are valid.');
                     }
